@@ -3,7 +3,7 @@
 #
 #          FILE: function.sh
 # 
-#         USAGE: ./function.sh 
+#         USAGE: source function.sh && snap 
 # 
 #   DESCRIPTION: 
 # 
