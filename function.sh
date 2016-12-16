@@ -11,10 +11,10 @@
 #  REQUIREMENTS: ---
 #          BUGS: ---
 #         NOTES: ---
-#        AUTHOR: YOUR NAME (), 
-#  ORGANIZATION: 
+#        AUTHOR: Dusty Carver 
+#  ORGANIZATION: Double AI
 #       CREATED: 12/16/2016 04:24
-#      REVISION:  ---
+#      REVISION:  Like .02
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
