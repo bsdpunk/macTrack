@@ -18,8 +18,10 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
+#Need To add Customizable log
+
 LOGFILE="$HOME/Documents/snap.log"
-function snap () { echo "%CPU %MEM USER PID COMMAND" ; ps aux | awk '{print $3,$4,$1,$2,$11}'| sort -rnk1,1 | grep -v '0.0 0.0' && echo '' && vm_stat && echo '' &&  osascript -e 'path to frontmost application as text' ; }
+function snap () { echo "%CPU %MEM USER PID COMMAND" ; ps aux | awk '{print $3,$4,$1,$2,$11}'| sort -rnk1,1 | grep -v '0.0 0.0' && echo '' && vm_stat && echo '' && echo 'Frontmost App: '  && osascript -e 'path to frontmost application as text' ; }
 
 
 #echo $(cat ~/Documents/snap.log | grep bk | wc -l) \/ 3 | bc
