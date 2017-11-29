@@ -1,6 +1,0 @@
-tell application "iTerm"
-	tell current window
-		do shell script "echo \"" & name & "\""
-	end tell
-end tell
-
