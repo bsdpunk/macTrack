@@ -1,12 +1,20 @@
 on is_running(appName)
 	tell application "System Events" to (name of processes) contains appName
 end is_running
+--on exists (appName)
+--	tell application "System Events"
+--		get exists application process appName
+--	end tell
+--end exists
 on exists (appName)
-	tell application "System Events"
-		get exists application process appName
-	end tell
+	set doesExist to false
+	try
+		do shell script "osascript -e 'exists application \"& appName &\"'"
+		set doesExist to true
+	end try
+	
+	return doesExist
 end exists
-
 
 if exists("iTerm2") then
 set isTerm to is_running("iTerm2")
