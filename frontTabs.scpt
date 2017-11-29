@@ -1,9 +1,14 @@
 on is_running(appName)
 	tell application "System Events" to (name of processes) contains appName
 end is_running
+on exists (appName)
+	tell application "System Events"
+		get exists application process appName
+	end tell
+end exists
 
-global iName
 
+if exists("iTerm2") then
 set isTerm to is_running("iTerm2")
 if isTerm then
 	tell application "iTerm"
@@ -15,7 +20,10 @@ if isTerm then
 else
 	set iName to ""
 end if
+else
 
+	set iName to ""
+end if
 
 set isRunning to is_running("Safari")
 
@@ -33,7 +41,7 @@ else
 	set sName to ""
 end if
 
-
+if exists("Google Chrome") then
 set isRunning to is_running("Google Chrome")
 if isRunning then
 	tell application "Google Chrome"
@@ -48,7 +56,9 @@ if isRunning then
 else
 	set gName to ""
 end if
+else
 
-delay 0.5
+	set gName to ""
+end if 
 do shell script "echo  \" " & iName & " ||" & sName & " ||"  & gName & "\""
 
