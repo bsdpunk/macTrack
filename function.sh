@@ -28,7 +28,7 @@ function snap () { echo "%CPU %MEM USER PID COMMAND" ; ps aux | awk '{print $3,$
 while true;
 do
     TIME="$(perl -e 'print(time());')" 
-    echo ${TIME} >> ${LOGFILE} && date >> ${LOGFILE} && echo ${TIME} >> ${LOGFILE} && snap >> ${LOGFILE} && echo $(osascript getItermName.scpt) >> ${LOGFILE}; 
+    echo ${TIME} >> ${LOGFILE} && date >> ${LOGFILE} && echo ${TIME} >> ${LOGFILE} && snap >> ${LOGFILE} && echo $(osascript frontTabs.scpt ) >> ${LOGFILE}; 
     sleep 360
 done
 
