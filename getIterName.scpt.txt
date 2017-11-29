@@ -1,0 +1,5 @@
+tell application "iTerm"
+	tell current window
+		do shell script "echo " & session
+	end tell
+end tell

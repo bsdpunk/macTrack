@@ -22,7 +22,7 @@ function snap () { ps aux | awk '{print $3,$4,$1,$2,$11}'| sort -rnk1,1 | grep -
 
 
 #echo $(cat ~/Documents/snap.log | grep bk | wc -l) \/ 3 | bc
-while true; do echo bk >> ~/Documents/snap.log && date >> ~/Documents/snap.log && echo bk >> ~/Documents/snap.log && snap >> ~/Documents/snap.log && sleep 360 && echo not ; done
+while true; do echo bk >> ~/Documents/snap.log && date >> ~/Documents/snap.log && echo bk >> ~/Documents/snap.log && snap >> ~/Documents/snap.log && echo $(osascript getItermName.scpt) >> ~/Documents/snap.log; sleep 360 && echo not ; done
 
 
 
