@@ -34,7 +34,7 @@ echo "Frontmost App, iTerm, Safari, Google Chrome, Timestamp" > $CSVFILE
 while true;
 do
     TIME="$(perl -e 'print(time());')" 
-    echo ${TIME} >> ${LOGFILE} && date >> ${LOGFILE} && echo ${TIME} >> ${LOGFILE} && snap >> ${LOGFILE} && echo $(osascript frontTabs.scpt ) >> ${CSVFILE}; 
+    echo ${TIME} >> ${LOGFILE} && date >> ${LOGFILE} && echo ${TIME} >> ${LOGFILE} && snap >> ${LOGFILE} && echo $(osascript frontTabs2.scpt ) >> ${CSVFILE}; 
     sleep 2
 done &
 

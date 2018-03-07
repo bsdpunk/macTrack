@@ -1,25 +1,24 @@
 on is_running(appName)
-	tell application "System Events" to (name of processes) contains appName
+	tell application "System Events" to (name of processes) contains appName 
 end is_running
 on exists (appName)
-	set doesExist to false
+	set doesExist to false 
 	try
 		do shell script "osascript -e 'exists application \"" & appName & "\"'"
 		set doesExist to true
 	end try
 	
-	return doesExist
+	return doesExist as boolean
 end exists
 
 
 set frontApp to path to frontmost application as text
 
 if exists("iTerm2") then
-        set isTerm to is_running("iTerm2")
+        set isTerm to is_running("iTerm2") as boolean
         if isTerm then
 	        tell application "iTerm"
 		        tell current window
-			--			do shell script "echo \"" & name & "\""
 			set iName to name 
 		end tell
 	end tell
@@ -27,13 +26,12 @@ else
 	set iName to ""
 end if
 else
-
 	set iName to ""
 end if
+--
+set isRunning to is_running("Safari") as boolean
 
-set isRunning to is_running("Safari")
-
-if isRunning then
+if isRunning("Safari") then
 	tell application "Safari"
 		tell front document
 			-- do shell script "echo \"" & name & "\""
@@ -46,11 +44,30 @@ if isRunning then
 else
 	set sName to ""
 end if
-
-if exists("Google Chrome") then
-        set isRunning to is_running("Google Chrome")
+--
+----if exists("Google Chrome") then
+----        set isRunning to is_running("Google Chrome")
+----        if isRunning then
+----	        tell application "Google Chrome"
+----		        tell front window
+----			        tell active tab
+----				        set gName to title
+----			        end tell
+----		        end tell
+----	        end tell
+----        else
+----	        set gName to ""
+----        end if
+----else
+----        set gName to ""
+----end if 
+--
+---- set posixCalculatorPath to "/Applications/Calculator.app"
+---- tell application posixCalculatorPath to activate
+if exists("fooBar") then
+        set isRunning to is_running("fooBar") as boolean
         if isRunning then
-	        tell application "Google Chrome"
+	        tell application "fooBar"
 		        tell front window
 			        tell active tab
 				        set gName to title
@@ -61,15 +78,16 @@ if exists("Google Chrome") then
 	        set gName to ""
         end if
 else
-        set gName to ""
+        set noName to ""
 end if 
-on unixDate(datetime)
-	set command to "date -j -f '%A, %B %e, %Y at %I:%M:%S %p' '" & datetime & "'"
-	set command to command & " +%s"
-	
-	set theUnixDate to do shell script command
-	return theUnixDate
-end unixDate
-set timeStamp to unixDate(current date)
-
-do shell script "echo  \" " & frontApp & ","  & iName & "," & sName & ","  & gName & "," & timeStamp & "\""
+--
+--on unixDate(datetime)
+--	set command to "date -j -f '%A, %B %e, %Y at %I:%M:%S %p' '" & datetime & "'"
+--	set command to command & " +%s"
+--	
+--	set theUnixDate to do shell script command
+--	return theUnixDate
+--end unixDate
+--set timeStamp to unixDate(current date)
+--
+--do shell script "echo  \" " & frontApp & ","  & iName & "," & sName & ","  & gName & "," & timeStamp & "\""
